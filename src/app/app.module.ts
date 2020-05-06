@@ -9,6 +9,7 @@ import { MateriasComponent } from './pages/materias/materias.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatBadgeModule } from '@angular/material/badge';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { MatBadgeModule } from '@angular/material/badge';
     BrowserModule,
     AppRoutingModule,
     PoModule,
+    FormsModule,
     RouterModule.forRoot([]),
     BrowserAnimationsModule,
     MatCardModule,

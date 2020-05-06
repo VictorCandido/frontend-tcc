@@ -1,29 +1,32 @@
-<po-page-default p-title="Matérias">
+<po-page-default>
     <div class="container">
         <div class="chat">
             <div class="chat-header">
-                header
+              <h2>Chatbot</h2>
             </div>
 
-            <div class="chat-body">
-                <mat-card class="local-message">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</mat-card>
-                <mat-card class="local-message">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</mat-card>
-                <mat-card class="remote-message">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</mat-card>
-                <mat-card class="remote-message">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</mat-card>
-                <mat-card class="remote-message">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</mat-card>
+            <div class="chat-body" #chatBody>
+              <mat-card
+                *ngFor="let message of conversation"
+                [ngClass]="message.class"
+              >{{ message.text }}</mat-card>
             </div>
 
             <div class="chat-message">
                 <div class="po-row">
                     <po-input
-                        class="po-md-11"
-                        p-placeholder="Digite uma mensagem..."
+                      p-auto-focus=true
+                      class="po-md-11"
+                      p-placeholder="Digite uma mensagem..."
+                      [(ngModel)]="localMessage"
+                      (keyup)="onKey($event)"
                     ></po-input>
-                    
+
                     <po-button
-                        class="po-md-1 sendButton"
-                        p-icon="po-icon-sms"
-                        p-label="Enviar"
+                      class="po-md-1 sendButton"
+                      p-icon="po-icon-sms"
+                      p-label="Enviar"
+                      (p-click)="addLocalMessage()"
                     ></po-button>
                 </div>
             </div>
