@@ -4,7 +4,16 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3333/api'
+  apiUrl: 'http://localhost:3333/api',
+  typeMessages: {
+      start_conversation_answer: 'startConversation-answer',
+      not_allowed: 'category-not-allowed',
+      question_success: 'question-success',
+      util: 'util-sim',
+      db_answer: 'db-answer',
+      not_found: 'answer-not-found',
+      chat_answer: 'chat-answer',
+  }
 };
 
 /*

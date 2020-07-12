@@ -9,11 +9,17 @@ import { PoMenuItem } from '@po-ui/ng-components';
 })
 export class AppComponent {
 
+  public user = {
+    username: 'Víctor Cândido',
+    email: 'victor.candido@iv2.com.br'
+  };
+
   readonly menus: Array<PoMenuItem> = [
     { label: 'Home', shortLabel: 'Home', icon: 'po-icon-home' },
     { label: 'Calendário', shortLabel: 'Calendário', icon: 'po-icon-calendar' },
-    { label: 'Matérias', shortLabel: 'Matérias', icon: 'po-icon-edit', link: 'materias' },
-    { label: 'Painel de Controle', shortLabel: 'Painel de Controle', icon: 'po-icon-settings' },
+    { label: 'Chat', shortLabel: 'Chat', icon: 'po-icon-chat', link: 'materias' },
+    { label: 'Perguntas', shortLabel: 'Perguntas', icon: 'po-icon-help', link: 'perguntas' },
+    { label: 'Painel de Controle', shortLabel: 'Controle', icon: 'po-icon-settings' },
   ];
 
   private onClick() {

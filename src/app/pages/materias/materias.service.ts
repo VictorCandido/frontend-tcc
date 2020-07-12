@@ -7,22 +7,29 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MateriasService {
 
-  private readonly apiUrl = environment.apiUrl + '/chatbot';
+  private readonly apiChatbot = environment.apiUrl + '/chatbot';
+  private readonly apiUnderstanding = environment.apiUrl + '/understanding';
 
   constructor(
     private http: HttpClient
   ) { }
 
   startConversation(): any {
-    return this.http.get(this.apiUrl);
+    return this.http.get(this.apiChatbot);
   }
 
   sendMessage(text, context) {
-    return this.http.post(this.apiUrl, {
+    return this.http.post(this.apiChatbot, {
       input: {
         text
       },
       context
+    });
+  }
+
+  sendQuestion(text) {
+    return this.http.post(this.apiUnderstanding, {
+      text
     });
   }
 }
